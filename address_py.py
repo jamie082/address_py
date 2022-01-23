@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-import sqlite3
+import sqlite3 
 
 # http://tutorialspoint.com/sqlite/sqlite_python.htm
 
@@ -16,11 +16,14 @@ def main():
 
 def write_function():
     try:
-        sqliteConnection = sqlite.connect('test.db')
-        cursor = sqliteConnection.cursor()
-        cursor.execute(sqlite_insert_query)
-        sqlteConnection.commit()
-        cursor.close()
+        db = connect('test.db')
+
+        first_name = input("First name: ")
+        last_name = input("Last name: ") 
+        address = input("Address Line: ")
+        zip_code = int(input("Zip Code: ")
+        state = input("State: ")
+
     except sqlite3.Error as error:
         print("Error while working with SQLite", error)
     finally:
@@ -29,10 +32,15 @@ def write_function():
             sqliteConnection.close()
             print("sqlite connection is closed")
 
+    db.close()
+
 def read_function(): # read DB
+
     try:
-        sqliteConnection = sqlite.connect('test.db') # connect to db
+        con = sqlite3.connect('test.db')
     except: # if error (db is not read)
         print("Error reading DB")
+
+    con.close()
 
 main()
