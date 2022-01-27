@@ -18,16 +18,13 @@ def write_function():
     try:
         con = sqlite3.connect("test.db")
         cursor = con.cursor()
-        name = input("First name: ")
+        personal_name = input("Name: ")
         address = input("Address Line: ")
-        zip_code = int(input("Zip Code: ")
+        zip_code = input("Zip Code: ")
+        phone_number = input("Phone #: ")
 
-        # Address Book
-        # state = input("State: ")
-        # http://pythonlobby.com/inserting-data-into-database-in-python-using-sqlite
-
-        query = '''INSERT INTO users(name,address,zip) VALUES (?,?,?) '''
-        data = (name, address, zip_code)
+        data = (personal_name, address, zip_code)
+        data = ''' (personal_name, address, zip_code, phone_number) VALUES (?,?,?,?) '''
         cursor.execute(query, data)
         con.commit()
         if (cursor.execute(query,data)):
@@ -38,10 +35,7 @@ def write_function():
     except:
         print("Database Error")
     finally:
-        # print("Something Else Went Wrong")
-        if sqliteConnection:
-            print("Another Error")
-            sqliteConnection.close()
+        # Something else went wrong
             print("sqlite connection is closed")
 
     con.close() # db close
