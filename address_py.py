@@ -26,7 +26,7 @@ def write_function():
         # state = input("State: ")
         # http://pythonlobby.com/inserting-data-into-database-in-python-using-sqlite
 
-        query = "INSERT into USERS (name, address, zip_code) VALUES (?,?,?)"
+        query = '''INSERT INTO users(name,address,zip) VALUES (?,?,?) '''
         data = (name, address, zip_code)
         cursor.execute(query, data)
         con.commit()
@@ -40,16 +40,19 @@ def write_function():
     finally:
         # print("Something Else Went Wrong")
         if sqliteConnection:
-            print("Total Rows affected since the database connection was opened: ")
+            print("Another Error")
             sqliteConnection.close()
             print("sqlite connection is closed")
 
     con.close() # db close
 
 def read_function(): # read DB
-    # sqlite3 update
     try:
-        con = sqlite3.connect('test.db')
+        sqliteConnection = sqlite3.connection('test.db')   
+        print("Connected to Sqlite")
+        sql_query = """SELECT name FROM sqlite_master WHERE type='table';"""
+        cursor = sqliteConnection.cursor()
+        print("List of tables\n")
     except: # if error (db is not read)
         print("Error reading DB")
 
