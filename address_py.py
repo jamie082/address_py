@@ -4,8 +4,6 @@ import sqlite3
 
 con = sqlite3.connect("test.db")
 
-# http://tutorialspoint.com/sqlite/sqlite_python.htm
-
 def main():
     answer = input("Press (1) to store, (2) to retrieve\n")
     print(answer)
@@ -42,20 +40,20 @@ def read_function(): # read DB
         select_data = 'SELECT * FROM HASH'
         cursor.execute(select_data)
 
-        row = cursor.fetchone()
-        print(row)
+        row = cursor.fetchall()
+        print("Total rows are: ", len(row))
+        print("Printing each row")
+        for i in row:
+            print("personal name: ", i[0])
+            print("address: "       , i[1])
+            print("zip code: "      , i[2])
+            print(" phone number: ", i[3])
+            print("\n")
 
-        #con.commit()
-        
-        # close the connection
-        #con.close()
+        cursor.close()
+
     except:
         print("Error")
-
-    finally:
-        print("Something went wrong (also)")
-
-
 
 main()
 
