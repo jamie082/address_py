@@ -15,3 +15,10 @@
 * [General_info](#general-info)
 * [Technologies](technologies)
 * [Setup](#setup)
+
+
+## General Info
+
+## Technologies
+
+## Setup
