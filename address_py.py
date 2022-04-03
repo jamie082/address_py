@@ -43,6 +43,9 @@ def read_function(): # read DB
         row = cursor.fetchall()
         print("Total rows are: ", len(row))
         print("Printing each row")
+        
+        # pynative.com/python-cursor-fetchall-fetchmany-fetchone-to-read-rows-from-table/
+
         for i in row:
             print("personal name: ", i[0])
             print("address: "       , i[1])
