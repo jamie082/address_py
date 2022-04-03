@@ -12,6 +12,6 @@
 
 <h1>heading</h1>
 
-* [General_info] (#general-info)
+* [General_info](#general-info)
 * [Technologies](technologies)
 * [Setup](#setup)
