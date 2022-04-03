@@ -11,3 +11,6 @@
 </div>
 
 <h1>heading</h1>
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Setup](#setup)
